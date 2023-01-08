@@ -8,12 +8,12 @@
     margin: 5px;
     justify-content: normal;
     padding: 3px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .group {
     width: auto;
-    height: 85%;
+    height: 55%;
     border: 0.25cm;
     border-style: dashed;
     border-radius: 1.5%;
@@ -23,7 +23,6 @@
 
 .group-name {
     margin-bottom: 5px;
-    border: none;
     font-size: 1rem bold;
     width: 35%;
     /* display: flex; */
@@ -31,6 +30,7 @@
     -webkit-text-fill-color: white;
     background-color: red;
     outline: none;
+    border: none;
 }
 
 .group-content {
@@ -38,12 +38,11 @@
     width: auto;
     margin: 0.1rem;
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .group-header {
     margin-bottom: 5px;
-    border: none;
     border-radius: 5px;
     font-size: 1rem bold;
     width: auto;
@@ -51,4 +50,5 @@
     /* fill: red; */
     background-color: grey;
     outline: none;
+    border: none;
 }
