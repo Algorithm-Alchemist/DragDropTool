@@ -1,19 +1,145 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
+}
+
+.whiteboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.whiteboard--content {
+    height: 82%;
+}
+
+.whiteboard--product-slider {
+    justify-self: flex-end;
+    display: flex;
+    width: 100%;
+    height: 25%;
+    border-top-width: 2px;
+    border-top-color: grey;
+    border-top-style: solid;
+    flex-direction: row;
+    padding: 0.4rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.product-slider--product {
+    background-color: lightgrey;
+    height: 100%;
+    width: 6rem;
+    margin-left: 0.5rem;
+    border-width: 1px;
+    border-color: grey;
+    border-style: solid;
+}
+
+.suggestion-name {
+    margin-top: 18.72px;
+    padding-left: 0.3rem;
+    margin-left: 0rem;
+    font-size: 1.7rem;
+    width: 100%;
+    margin-left: 2rem;
+    text-align: left;
+}
+
+.left-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 18%;
+}
+.option-buttons-container {
+    position: absolute;
+    top: 18.72px;
+    right: 5px;
+}
+
+.button-large {
+    font-size: 1.2rem;
+    max-width: 300px;
+    margin-top: 0.67rem;
+}
+.option-button {
+    margin-right: 0.3rem;
+    margin-top: 3px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    color: blue;
+    border-width: 1px;
+    border-style: solid;
+    border-color: blue;
+    background-color: white;
+}
+.page-number {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+}
+
+.button-round {
+    border-radius: 40px;
+}
+
+.product-modal {
+    border-style: solid;
+    border-width: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: 3rem;
+}
+
+#Page-Number {
+    width: 100%;
+    height: 50%;
+    background: #b6c5e513;
+    margin-top: 5rem;
+    margin-right: 675px;
+    color: red;
+    border-color: red;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+}
+
+.Page-Buttons {
+    display: flex;
+    position: absolute;
+    margin-top: 2rem;
+}
+#Add-Page {
+    width: 100%;
+    height: 50%;
+    background: #b6c5e513;
+    margin-top: 3rem;
+    background-color: lightcoral;
+    color: red;
 }
 

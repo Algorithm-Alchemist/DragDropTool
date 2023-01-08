@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TabContext } from "src/components/tabbed-display";
+import { TabContext } from "src/components/tabbed-display/tabbed-display";
 import Box from "@mui/material/Box";
 import { SxProps } from "@mui/system";
 import { Theme } from "@mui/material/styles";

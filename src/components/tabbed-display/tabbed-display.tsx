@@ -2,7 +2,7 @@ import React, {SyntheticEvent, useState} from "react";
 import Paper from "@mui/material/Paper";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Button, Icon } from "@mui/material";
+import {Button} from "@mui/material";
 
 /* eslint-disable-next-line */
 export interface TabbedDisplayProps {
@@ -24,7 +24,7 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
     const tabSx = {
         color: "darkgray",
         fontWeight: "bold",
-        margin: '0px 20px'
+        margin: "0px 20px"
     };
 
     const [selectedTab, setSelectedTab] = useState(selected);
@@ -55,10 +55,10 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
             >
                 {tabs}
                 <Button
-                sx={tabSx}
-                onClick={()=> {
-                    alert('new page added...')
-                }}
+                    sx={tabSx}
+                    onClick={() => {
+                        alert("new page added...");
+                    }}
                 >
                     + Add New
                 </Button>

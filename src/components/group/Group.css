@@ -1,0 +1,54 @@
+
+.group-container {
+    opacity: 100%;
+    display: block;
+    width: auto;
+    height: 90%;
+    align-self: center;
+    margin: 5px;
+    justify-content: normal;
+    padding: 3px;
+    border: 1px solid black;
+}
+
+.group {
+    width: auto;
+    height: 85%;
+    border: 0.25cm;
+    border-style: dashed;
+    border-radius: 1.5%;
+    border-color: red;
+    border-width: 1px;
+}
+
+.group-name {
+    margin-bottom: 5px;
+    border: none;
+    font-size: 1rem bold;
+    width: 35%;
+    /* display: flex; */
+    /* fill: red; */
+    -webkit-text-fill-color: white;
+    background-color: red;
+    outline: none;
+}
+
+.group-content {
+    height: 80%;
+    width: auto;
+    margin: 0.1rem;
+    display: flex;
+    border: 1px solid black;
+}
+
+.group-header {
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem bold;
+    width: auto;
+    display: flex;
+    /* fill: red; */
+    background-color: grey;
+    outline: none;
+}
