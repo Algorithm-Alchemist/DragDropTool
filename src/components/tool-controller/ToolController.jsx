@@ -72,16 +72,12 @@ function ToolController() {
                 handleAddNewPage={handleAddNewPage}
                 handleClosePage={handleClosePage}
             >
-                <ProductSlider
-                    addProductToGroup={addProductToGroup}
-                    products={productList}
-                    selectedProductIds={selectedProductIds}
-                />
+
                 <TabPanel index={0}>
-                    <Whiteboard addProductToGroup={addProductToGroup} groups={groups}></Whiteboard>
+                    <Whiteboard></Whiteboard>
                 </TabPanel>
                 <TabPanel index={1}>
-                    <div style={tabPanelSx}>Page 2 content would be here.</div>
+                    <Whiteboard></Whiteboard>
                 </TabPanel>
             </TabbedDisplay>
         </DndProvider>
