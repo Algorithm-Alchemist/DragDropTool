@@ -3,12 +3,15 @@ import Paper from "@mui/material/Paper";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import {Button} from "@mui/material";
+// import { Close } from "@mui/icons-material";
+
 
 /* eslint-disable-next-line */
 export interface TabbedDisplayProps {
     panelParent?: string;
     selected?: number;
     tabLabels: string[];
+    handleAddNewPage: ()=> void,
     children: React.ReactNode;
 }
 
@@ -19,6 +22,7 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
     panelParent = "unparented",
     selected = 0,
     tabLabels,
+    handleAddNewPage,
     children
 }) => {
     const tabSx = {
@@ -37,6 +41,9 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
         <Tab
             label={x}
             key={`${panelParent}-tab-${i}`}
+            // icon={
+            //     <Close></Close>
+            // }
             sx={theme => ({
                 ...tabSx,
                 backgroundColor: theme.palette.background.paper
@@ -56,9 +63,7 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
                 {tabs}
                 <Button
                     sx={tabSx}
-                    onClick={() => {
-                        alert("new page added...");
-                    }}
+                    onClick={handleAddNewPage}
                 >
                     + Add New
                 </Button>

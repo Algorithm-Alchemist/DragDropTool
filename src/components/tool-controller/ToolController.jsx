@@ -10,6 +10,7 @@ import { productList } from '../../helpers/productList';
 function ToolController() {
   const [groups, setGroups] = useState([{ id: 1, products: [], name: '' }]);
   const [selectedProductIds, setSelectedProductIds] = useState([]);
+  const [tabNumbers, setTabNumbers] = useState(1)
 
   const addProductToGroup = (fromGroupId, productId, groupId) => {
     console.log(fromGroupId, productId, groupId);
@@ -49,9 +50,21 @@ function ToolController() {
 
   const tabPanelSx = { fontFamily: 'sans-serif', padding: '16px' };
 
+  const tabLabels = ()=> {
+    const tabLabelsArr = []
+    for (let index = 0; index < tabNumbers; index++) {
+      tabLabelsArr.push(`page${index+1}`)
+    }
+    return tabLabelsArr
+  }
+
+  const handleAddNewPage = () => {
+   setTabNumbers(tabNumbers+1)     
+  }
+
   return (
     <DndProvider backend={HTML5Backend}>
-      <TabbedDisplay tabLabels={['page1', 'page2']}>
+      <TabbedDisplay tabLabels={tabLabels()} handleAddNewPage={handleAddNewPage}>
         <ProductSlider
           addProductToGroup={addProductToGroup}
           products={productList}
