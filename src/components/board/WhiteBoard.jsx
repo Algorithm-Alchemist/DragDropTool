@@ -4,20 +4,20 @@ import Group from "../group/Group";
 import styles from "./WhiteBoard.css";
 import ProductSlider from "src/components/slider/ProductSlider";
 import {productList} from "src/helpers/productList";
+import {AddCircle} from "@mui/icons-material";
 
 export default function Whiteboard() {
-    const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
-    const [showModal, setShowModal] = useState(false);
+    // const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
+    // const [showModal, setShowModal] = useState(false);
 
     const [groups, setGroups] = useState([
         {id: 1, products: [], name: ""},
         {id: 2, products: [], name: ""}
     ]);
+
     const [selectedProductIds, setSelectedProductIds] = useState([]);
 
     const addProductToGroup = (fromGroupId, productId, groupId) => {
-        console.log(fromGroupId, productId, groupId);
-
         if (fromGroupId === groupId) return;
 
         if (groupId === -1) setSelectedProductIds(current => current.filter(item => item !== productId));
@@ -27,7 +27,6 @@ export default function Whiteboard() {
             let group = newGroups[i];
             if (group.id === groupId) {
                 const product = productList.find(product => product.id === productId);
-
                 group.products = [...group.products, product];
             } else if (group.id === fromGroupId) {
                 group.products = group.products.filter(product => product.id !== productId);
@@ -42,7 +41,7 @@ export default function Whiteboard() {
             setSelectedProductIds(current => [...current, productId]);
         }
 
-        setGroups([...newGroups]);
+        // setGroups(newGroups);
     };
 
     //   const handleGroupNameChange = (newName) => {
@@ -54,12 +53,10 @@ export default function Whiteboard() {
     //     });
     //   };
 
-    //   const handleCreateNewGroup = () => {
-    //     console.log('CHANGING GROUP');
-    //     const newGroupId = groups.length + 1;
-    //     setGroups([...groups, { id: newGroupId, products: [], name: '' }]);
-    //     setCurrentGroupIndex(newGroupId)
-    //   };
+    const handleCreateNewGroup = () => {
+        const newGroupId = groups.length + 1;
+        setGroups([...groups, {id: newGroupId, products: [], name: "new"}]);
+    };
 
     //   const handleViewDetails = (id) => {
     //     setShowModal(true);
@@ -74,8 +71,8 @@ export default function Whiteboard() {
                         {groups.map((val, index) => {
                             return (
                                 <Group
-                                    id={index+1}
-                                    name={`group${index+1}`}
+                                    id={index + 1}
+                                    name={`group${index + 1}`}
                                     products={groups[index].products}
                                     addProductToGroup={addProductToGroup}
                                     onViewDetails={() => {}}
@@ -83,6 +80,7 @@ export default function Whiteboard() {
                                 />
                             );
                         })}
+                        {<AddCircle fontSize="medium" onClick={handleCreateNewGroup}></AddCircle>}
                     </div>
                 </div>
             </div>

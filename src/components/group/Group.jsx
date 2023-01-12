@@ -3,7 +3,6 @@ import {useDrop} from "react-dnd";
 import GroupProduct from "./GroupProduct";
 // eslint-disable-next-line no-unused-vars
 import styles from "./Group.css";
-import {TextField} from "@mui/material";
 
 export default function Group({id, name, products, addProductToGroup, changeName, onViewDetails}) {
     const [{isOver}, drop] = useDrop(() => ({
