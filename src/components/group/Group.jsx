@@ -16,8 +16,7 @@ export default function Group({id, name, products, addProductToGroup, changeName
         <div className="group-container">
             <input
                 className="group-name"
-                // value={groupName}
-                value={'my group'}
+                value={groupName}
                 onChange={({target}) => {
                     setGroupName(target.value);
                 }}
@@ -39,7 +38,6 @@ export default function Group({id, name, products, addProductToGroup, changeName
                                 onViewDetails={() => onViewDetails(product.id)}
                             />
                         ))}
-                    show products here
                 </div>
             </div>
         </div>

@@ -9,7 +9,10 @@ export default function Whiteboard() {
     const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
-    const [groups, setGroups] = useState([{id: 1, products: [], name: ""}]);
+    const [groups, setGroups] = useState([
+        {id: 1, products: [], name: ""},
+        {id: 2, products: [], name: ""}
+    ]);
     const [selectedProductIds, setSelectedProductIds] = useState([]);
 
     const addProductToGroup = (fromGroupId, productId, groupId) => {
@@ -32,7 +35,6 @@ export default function Whiteboard() {
         }
 
         if (groupId === -1) {
-            // console.log(newGroups);
             console.log(groups);
         }
 
@@ -69,22 +71,18 @@ export default function Whiteboard() {
             <div className="whiteboard-container">
                 <div className="whiteboard--content">
                     <div className="groups-container">
-                        <Group
-                            id={groups[currentGroupIndex].id}
-                            name={groups[currentGroupIndex].name}
-                            products={groups[currentGroupIndex].products}
-                            addProductToGroup={addProductToGroup}
-                            onViewDetails={() => {}}
-                            changeName={() => {}}
-                        />
-                        <Group
-                            id={groups[currentGroupIndex].id}
-                            name={groups[currentGroupIndex].name}
-                            products={groups[currentGroupIndex].products}
-                            addProductToGroup={addProductToGroup}
-                            onViewDetails={() => {}}
-                            changeName={() => {}}
-                        />
+                        {groups.map((val, index) => {
+                            return (
+                                <Group
+                                    id={index+1}
+                                    name={`group${index+1}`}
+                                    products={groups[index].products}
+                                    addProductToGroup={addProductToGroup}
+                                    onViewDetails={() => {}}
+                                    changeName={() => {}}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>

@@ -72,7 +72,6 @@ function ToolController() {
                 handleAddNewPage={handleAddNewPage}
                 handleClosePage={handleClosePage}
             >
-
                 <TabPanel index={0}>
                     <Whiteboard></Whiteboard>
                 </TabPanel>
