@@ -1,6 +1,9 @@
 import React from "react";
 import { useDrop } from "react-dnd";
 import SliderProduct from "./SliderProduct";
+// eslint-disable-next-line no-unused-vars
+import styles from './ProductSlider.css';
+
 
 export default function ProductSlider({ products, selectedProductIds, addProductToGroup}) {
   const [{ isOver }, drop] = useDrop(() => ({
