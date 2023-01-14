@@ -61,7 +61,7 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
 
     return (
         <TabContext.Provider value={selectedTab}>
-            <Tabs
+            <Tabs className="Tabs-Container"
                 variant="scrollable"
                 scrollButtons="auto"
                 value={selectedTab}
