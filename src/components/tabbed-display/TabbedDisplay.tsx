@@ -5,7 +5,6 @@ import Tab from "@mui/material/Tab";
 import { Button } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
-
 /* eslint-disable-next-line */
 export interface TabbedDisplayProps {
     panelParent?: string;
@@ -31,6 +30,7 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
         color: "darkgray",
         fontWeight: "bold",
         margin: "0px 20px",
+        display: 'flex'
     };
 
     const [selectedTab, setSelectedTab] = useState(selected);
@@ -41,14 +41,15 @@ export const TabbedDisplay: React.FC<TabbedDisplayProps> = ({
 
     const tabs = tabLabels.map((x, i) => (
         <Tab
+            className="Single-Tab"
             label={x}
             key={`${panelParent}-tab-${i}`}
             icon={
-                <Close 
-                fontSize="small"
-                onClick={(event)=> {
-                    handleClosePage(event, i)
-                }}
+                <Close className="Close-Icon"
+                    fontSize="small"
+                    onClick={(event) => {
+                        handleClosePage(event, i)
+                    }}
                 ></Close>
             }
             sx={theme => ({

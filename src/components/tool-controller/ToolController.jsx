@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
-import TabbedDisplay from "../tabbed-display/tabbed-display";
-import TabPanel from "../tabbed-display/tab-panel";
+import TabbedDisplay from "../tabbed-display/TabbedDisplay";
+import TabPanel from "../tabbed-display/tabPanel";
 import Whiteboard from "../board/WhiteBoard";
 import ProductSlider from "../slider/ProductSlider";
 import {productList} from "../../helpers/productList";
