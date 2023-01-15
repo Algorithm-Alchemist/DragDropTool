@@ -35,7 +35,7 @@
 }
 
 .group-content {
-    height: 80%;
+    height: 87%;
     width: auto;
     margin: 0.1rem;
     display: flex;
@@ -53,4 +53,8 @@
     outline: none;
     border: none;
     cursor: grab;
+}
+
+.group-product {
+    transform: scale(0.8);
 }
