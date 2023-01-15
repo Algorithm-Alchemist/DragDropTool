@@ -1,38 +1,37 @@
 .group-container {
     opacity: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
     width: auto;
-    height: 90%;
-    align-self: center;
+    height: 300px;
     margin: 5px;
-    justify-content: normal;
     padding: 3px;
     /* border: 1px solid black; */
 }
 
 .group {
-    width: auto;
-    height: 55%;
+    width: 98%;
+    height: 90%;
     border: 0.25cm;
     border-style: dashed;
     border-radius: 1.5%;
     border-color: red;
-    border-width: 1px;
+    border-width: 2px;
 }
 
 .group-name {
     font-size: small;
     margin-bottom: 3px;
-    width: 35%;
+    width: 20%;
     height: auto;
-    /* display: flex; */
     -webkit-text-fill-color: white;
     background-color: red;
     outline: none;
     border: none;
     cursor: grab;
     border-radius: 5px;
-    padding: 3px;
+    padding: 4px;
 }
 
 .group-content {
@@ -48,8 +47,7 @@
     margin: 5px;
     border-radius: 5px;
     padding: 3px;
-    font-size: 1rem bold;
-    width: auto;
+    width: 95%;
     display: flex;
     background-color: rgb(177, 177, 177);
     outline: none;
