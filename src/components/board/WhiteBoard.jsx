@@ -66,22 +66,20 @@ export default function Whiteboard() {
     return (
         <div>
             <div className="whiteboard-container">
-                <div className="whiteboard--content">
-                    <div className="groups-container">
-                        {groups.map((val, index) => {
-                            return (
-                                <Group
-                                    id={index + 1}
-                                    name={`group${index + 1}`}
-                                    products={groups[index].products}
-                                    addProductToGroup={addProductToGroup}
-                                    onViewDetails={() => {}}
-                                    changeName={() => {}}
-                                />
-                            );
-                        })}
-                        {<AddCircle fontSize="medium" onClick={handleCreateNewGroup}></AddCircle>}
-                    </div>
+                <div className="groups-container">
+                    {groups.map((val, index) => {
+                        return (
+                            <Group
+                                id={index + 1}
+                                name={`group${index + 1}`}
+                                products={groups[index].products}
+                                addProductToGroup={addProductToGroup}
+                                onViewDetails={() => {}}
+                                changeName={() => {}}
+                            />
+                        );
+                    })}
+                    {<AddCircle fontSize="medium" onClick={handleCreateNewGroup}></AddCircle>}
                 </div>
             </div>
             <ProductSlider
