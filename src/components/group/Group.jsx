@@ -31,12 +31,13 @@ export default function Group({id, name, products, addProductToGroup, changeName
                     <input className="group-header handle" value={"121 unit, $1200"}></input>
                     <div className="group-content">
                         {products &&
-                            products.map(product => (
+                            products.map((product, _index) => (
                                 <GroupProduct
                                     key={product.id}
                                     currentGroupId={id}
                                     productInfo={product}
                                     onViewDetails={() => onViewDetails(product.id)}
+                                    index={_index}
                                 />
                             ))}
                     </div>
