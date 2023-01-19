@@ -1,40 +1,37 @@
 .whiteboard-container {
-  position: absolute;
-  left: auto;
-  right: auto;
-  top: auto;
-  justify-content: center;
-  bottom: auto;
-  margin: auto;
-  border-width: 2px;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  background-size: 15px 15px;
-  background-image: linear-gradient(
-      to right,
-      rgb(187, 186, 186) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgb(187, 186, 186) 1px, transparent 1px);
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: auto;
+    justify-content: center;
+    bottom: auto;
+    margin: auto;
+    border-width: 2px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    background-size: 15px 15px;
+    background-image: linear-gradient(to right, rgb(189 189 189) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(189 189 189) 1px, transparent 1px);
+    background-color: #f9f8f5;
 }
 
 .groups-container {
-  opacity: 100%;
-  display: flex;
-  width: auto;
-  height: auto;
-  /* justify-self: center; */
-  vertical-align: middle;
-  margin: 5px;
-  margin-top: 5%;
-  justify-content: center;
-  padding: 3px;
-  /* border: 1px solid black; */
+    opacity: 100%;
+    display: flex;
+    width: auto;
+    height: auto;
+    /* justify-self: center; */
+    vertical-align: middle;
+    margin: 5px;
+    margin-top: 5%;
+    justify-content: center;
+    padding: 3px;
+    /* border: 1px solid black; */
 }
 
 .temp {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
