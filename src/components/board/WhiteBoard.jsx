@@ -67,11 +67,11 @@ export default function Whiteboard() {
         <div>
             <div className="whiteboard-container">
                 <div className="groups-container">
-                    {groups.map((val, index) => {
+                    {groups.map((group, index) => {
                         return (
                             <Group
                                 id={index + 1}
-                                name={`group${index + 1}`}
+                                name={`group ${index + 1}`}
                                 products={groups[index].products}
                                 addProductToGroup={addProductToGroup}
                                 onViewDetails={() => {}}
