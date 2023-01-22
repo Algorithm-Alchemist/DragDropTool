@@ -31,7 +31,7 @@ export default function GroupProduct({
   const _style = isZoomedIn
     ? {
         transform: "scale(0.9)",
-        height: "190px",
+        height: "120px",
         width: "auto",
         border: "1px solid darkseagreen",
       }

@@ -3,11 +3,12 @@ import GroupProduct from "../GroupProduct";
 export default function GroupContent({ products, id, isZoomedIn }) {
   const _style = isZoomedIn
     ? {
-        marginTop: "15px",
+        marginTop: "20px",
         borderBlock: "inherit",
         display: "flex",
         flexWrap: "wrap",
-        height: "auto",
+        height: "85%",
+        overflowY: "scroll",
       }
     : {};
   return (

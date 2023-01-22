@@ -5,7 +5,7 @@ export default function GroupDetailsHeader(props) {
       fontSize: "medium",
       margin: '5px',
       padding: '5px',
-      width: '120px'
+      width: '130px'
     }
   : {};
   return (
