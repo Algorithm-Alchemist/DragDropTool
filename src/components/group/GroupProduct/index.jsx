@@ -44,10 +44,10 @@ export default function GroupProduct({
       };
   return (
     <img
+      className={`group-product ${isZoomedIn? "": "group-product-hover"}`}
       alt="draggable pic"
       ref={drag}
       key={productInfo.id}
-      className="group-product"
       src={"/product-images/" + productInfo.image_name}
       style={_style}
       onClick={() => onViewDetails(productInfo.id)}
