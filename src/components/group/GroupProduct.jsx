@@ -35,7 +35,7 @@ export default function GroupProduct({productInfo, currentGroupId, onViewDetails
                 border: isDragging ? "10 px solid blue" : "0px solid black",
                 marginLeft: marginLeft(),
                 zIndex: index + 1,
-                "margin-top": zoomedIn ? "100px" : `${marginArr[index % 4] * 50 - 25}px`
+                marginTop: zoomedIn ? "100px" : `${marginArr[index % 4] * 50 - 25}px`
             }}
             onClick={() => onViewDetails(productInfo.id)}
         />
