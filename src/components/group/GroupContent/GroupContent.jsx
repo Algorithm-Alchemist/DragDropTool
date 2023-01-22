@@ -1,7 +1,6 @@
 import GroupProduct from "../GroupProduct";
 
 export default function GroupContent({ products, id, isZoomedIn }) {
-  console.log(isZoomedIn);
   return (
     <div className="group-content">
       {products &&
