@@ -9,12 +9,7 @@ import GroupContent from "./GroupContent/GroupContent";
 import GroupName from "./GroupName/GroupName";
 import GroupDetailsHeader from "./GroupDetailsHeader/GroupDetailsHeader";
 
-export default function Group({
-  id,
-  name,
-  products,
-  addProductToGroup,
-}) {
+export default function Group({ id, name, products, addProductToGroup }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "product",
     drop: (item) => addProductToGroup(item.currentGroupId, item.id, id),
@@ -25,6 +20,11 @@ export default function Group({
   const handleCheckedChange = () => {
     setChecked((prev) => !prev);
   };
+
+  let totalGroupPrice = 0;
+  products.forEach((product) => {
+    totalGroupPrice = totalGroupPrice + product.price;
+  });
 
   return (
     <>
@@ -48,7 +48,10 @@ export default function Group({
             setGroupName={setGroupName}
           ></GroupName>
           <div className="group" ref={drop}>
-          <GroupDetailsHeader noOfUnits={products.length}></GroupDetailsHeader>
+            <GroupDetailsHeader
+              noOfUnits={products.length}
+              totalGroupPrice={totalGroupPrice}
+            ></GroupDetailsHeader>
             <div className="group-content">
               <GroupContent
                 products={products}
