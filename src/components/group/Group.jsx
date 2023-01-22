@@ -7,6 +7,7 @@ import styles from "./Group.css";
 import BasicModal from "../Modal/GroupModal";
 import GroupContent from "./GroupContent/GroupContent";
 import GroupName from "./GroupName/GroupName";
+import GroupDetailsHeader from "./GroupDetailsHeader/GroupDetailsHeader";
 
 export default function Group({
   id,
@@ -39,6 +40,7 @@ export default function Group({
           }
         ></BasicModal>
       )}
+
       <Draggable handle=".handle">
         <div className="group-container">
           <GroupName
@@ -46,10 +48,7 @@ export default function Group({
             setGroupName={setGroupName}
           ></GroupName>
           <div className="group" ref={drop}>
-            <input
-              className="group-header handle"
-              value={"121 unit, $1200"}
-            ></input>
+          <GroupDetailsHeader noOfUnits={products.length}></GroupDetailsHeader>
             <div className="group-content">
               <GroupContent
                 products={products}
