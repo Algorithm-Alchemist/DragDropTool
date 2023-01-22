@@ -6,7 +6,8 @@ export default function GroupName(props) {
         maxWidth: "300px",
         minWidth: "90px",
         padding: '5px',
-        margin: '5px'
+        margin: '5px',
+        cursor: 'text'
       }
     : { width: `${props.groupName.length * 7}px` };
   return (
