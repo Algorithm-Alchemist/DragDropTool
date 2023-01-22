@@ -8,7 +8,9 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 800,
-    height: 500,
+    minHeight: 500,
+    maxHeight: 800,
+    height: 'auto',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -24,7 +26,7 @@ export default function BasicModal(props) {
     };
 
     return (
-        <div>
+        <div style={{height: 'auto'}}>
             {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <Modal
                 open={open}
