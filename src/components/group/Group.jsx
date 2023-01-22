@@ -25,21 +25,6 @@ export default function Group({
     setChecked((prev) => !prev);
   };
 
-  // const GroupName = (
-  //   <input
-  //     style={{ width: `${groupName.length * 7}px` }}
-  //     className="group-name handle"
-  //     value={groupName}
-  //     onChange={({ target }) => {
-  //       setGroupName(target.value);
-  //     }}
-  //     onBlur={({ target }) => {
-  //       changeName(target.value);
-  //     }}
-  //     placeholder="Group"
-  //   ></input>
-  // );
-
   return (
     <>
       {checked && (
