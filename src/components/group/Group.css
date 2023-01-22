@@ -1,63 +1,72 @@
 .group-container {
-    opacity: 100%;
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-    width: auto;
-    height: 360px;
-    margin: 5px;
-    padding: 3px;
-    /* border: 1px solid black; */
+  opacity: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: auto;
+  height: 360px;
+  margin: 5px;
+  padding: 3px;
+  /* border: 1px solid black; */
 }
 
 .group {
-    width: 98%;
-    height: 90%;
-    border: 0.25cm;
-    border-style: dashed;
-    border-radius: 1.5%;
-    border-color: red;
-    border-width: 2px;
+  width: 98%;
+  height: 90%;
+  border: 0.25cm;
+  border-style: dashed;
+  border-radius: 1.5%;
+  border-color: red;
+  border-width: 2px;
 }
 
 .group-name {
-    font-size: small;
-    margin-bottom: 3px;
-    min-width: 70px;
-    max-width: 200px;
-    height: auto;
-    -webkit-text-fill-color: white;
-    background-color: red;
-    outline: none;
-    border: none;
-    cursor: grab;
-    border-radius: 5px;
-    padding: 4px;
+  font-size: small;
+  margin-bottom: 3px;
+  min-width: 70px;
+  max-width: 200px;
+  height: auto;
+  -webkit-text-fill-color: white;
+  background-color: red;
+  outline: none;
+  border: none;
+  cursor: grab;
+  border-radius: 5px;
+  padding: 4px;
 }
 
 .group-content {
-    height: 87%;
-    width: auto;
-    margin: 0.1rem;
-    display: flex;
-    /* border: 1px solid black; */
+  height: 87%;
+  width: auto;
+  margin: 0.1rem;
+  display: flex;
+  /* border: 1px solid black; */
 }
 
 .group-header {
-    font-size: small;
-    margin: 5px;
-    border-radius: 5px;
-    padding: 3px;
-    width: 95%;
-    display: flex;
-    background-color: rgb(177, 177, 177);
-    outline: none;
-    border: none;
-    cursor: grab;
+  font-size: small;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  width: 95%;
+  display: flex;
+  background-color: rgb(177, 177, 177);
+  outline: none;
+  border: none;
+  cursor: grab;
 }
 
 .group-product {
-    padding: 20px;
-    background-color: white;
-    border-radius: 20%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20%;
+}
+
+.group-product-hover {
+}
+
+.group-product-hover:hover {
+  transform: scale(0.6) !important;
+  border: 1px solid black !important;
+  z-index: 100 !important;
 }
