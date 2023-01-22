@@ -1,5 +1,3 @@
-import { Scale } from "@mui/icons-material";
-import { color } from "@mui/system";
 import React from "react";
 import { useDrag } from "react-dnd";
 
