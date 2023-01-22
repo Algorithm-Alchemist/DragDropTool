@@ -4,17 +4,17 @@ import Draggable, { DraggableCore } from "react-draggable";
 // eslint-disable-next-line no-unused-vars
 import styles from "./Group.css";
 import BasicModal from "../Modal/GroupModal";
-import GroupContent from "./GroupContent/GroupContent";
-import GroupName from "./GroupName/GroupName";
-import GroupDetailsHeader from "./GroupDetailsHeader/GroupDetailsHeader";
+import GroupContent from "./GroupContent";
+import GroupName from "./GroupName";
+import GroupDetailsHeader from "./GroupDetailsHeader";
 import GroupZoomFunction from "./GroupZoomFunction";
 
-export default function Group({ id, name, products, addProductToGroup }) {
+export default function Group({ id, products, addProductToGroup }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "product",
     drop: (item) => addProductToGroup(item.currentGroupId, item.id, id),
   }));
-  const [groupName, setGroupName] = useState(name);
+  const [groupName, setGroupName] = useState("");
   const [checked, setChecked] = React.useState(false);
 
   const handleCheckedChange = () => {
@@ -32,7 +32,19 @@ export default function Group({ id, name, products, addProductToGroup }) {
         <BasicModal
           setChecked={setChecked}
           divElement={
-            <GroupContent products={products} id={id} isZoomedIn={true} />
+            <>
+              <GroupName
+                groupName={groupName}
+                setGroupName={setGroupName}
+                isZoomedIn={true}
+              />
+              <GroupDetailsHeader
+                noOfUnits={products.length}
+                totalGroupPrice={totalGroupPrice}
+                isZoomedIn={true}
+              />
+              <GroupContent products={products} id={id} isZoomedIn={true} />
+            </>
           }
         />
       )}
