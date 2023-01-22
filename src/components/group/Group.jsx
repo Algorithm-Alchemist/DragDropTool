@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDrop } from "react-dnd";
-import GroupProduct from "./GroupProduct";
 import Draggable, { DraggableCore } from "react-draggable";
 import { FormControlLabel, Switch } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
@@ -32,13 +31,7 @@ export default function Group({
       {checked && (
         <BasicModal
           setChecked={setChecked}
-          divElement={
-            <GroupContent
-              products={products}
-              id={id}
-              isZoomedIn={true}
-            ></GroupContent>
-          }
+          divElement={<GroupContent products={products} id={id} isZoomedIn={true}></GroupContent>}
         ></BasicModal>
       )}
       <Draggable handle=".handle">
@@ -62,13 +55,7 @@ export default function Group({
               value={"121 unit, $1200"}
             ></input>
             <div className="group-content">
-              {
-                <GroupContent
-                  products={products}
-                  id={id}
-                  isZoomedIn={false}
-                ></GroupContent>
-              }
+            {<GroupContent products={products} id={id} isZoomedIn={false}></GroupContent>}
             </div>
           </div>
           <FormControlLabel
