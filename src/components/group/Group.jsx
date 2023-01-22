@@ -55,7 +55,7 @@ export default function Group({
               value={"121 unit, $1200"}
             ></input>
             <div className="group-content">
-            {<GroupContent products={products} id={id} isZoomedIn={false}></GroupContent>}
+            <GroupContent products={products} id={id} isZoomedIn={false}></GroupContent>
             </div>
           </div>
           <FormControlLabel

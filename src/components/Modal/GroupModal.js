@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 const style = {
@@ -17,12 +15,12 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({setChecked, divElement}) {
+export default function BasicModal(props) {
     const [open, setOpen] = React.useState(true);
     //   const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false)
-        setChecked(false)
+        props.setChecked(false)
     };
 
     return (
@@ -35,7 +33,7 @@ export default function BasicModal({setChecked, divElement}) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    {divElement}
+                    {props.divElement}
                 </Box>
             </Modal>
         </div>
