@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDrop } from "react-dnd";
 import Draggable, { DraggableCore } from "react-draggable";
-import { FormControlLabel, Switch } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
 import styles from "./Group.css";
 import BasicModal from "../Modal/GroupModal";
 import GroupContent from "./GroupContent/GroupContent";
 import GroupName from "./GroupName/GroupName";
 import GroupDetailsHeader from "./GroupDetailsHeader/GroupDetailsHeader";
+import GroupZoomFunction from "./GroupZoomFunction";
 
 export default function Group({ id, name, products, addProductToGroup }) {
   const [{ isOver }, drop] = useDrop(() => ({
@@ -32,40 +32,22 @@ export default function Group({ id, name, products, addProductToGroup }) {
         <BasicModal
           setChecked={setChecked}
           divElement={
-            <GroupContent
-              products={products}
-              id={id}
-              isZoomedIn={true}
-            ></GroupContent>
+            <GroupContent products={products} id={id} isZoomedIn={true} />
           }
-        ></BasicModal>
+        />
       )}
 
       <Draggable handle=".handle">
         <div className="group-container">
-          <GroupName
-            groupName={groupName}
-            setGroupName={setGroupName}
-          ></GroupName>
+          <GroupName groupName={groupName} setGroupName={setGroupName} />
           <div className="group" ref={drop}>
             <GroupDetailsHeader
               noOfUnits={products.length}
               totalGroupPrice={totalGroupPrice}
-            ></GroupDetailsHeader>
-            <div className="group-content">
-              <GroupContent
-                products={products}
-                id={id}
-                isZoomedIn={false}
-              ></GroupContent>
-            </div>
+            />
+            <GroupContent products={products} id={id} isZoomedIn={false} />
           </div>
-          <FormControlLabel
-            control={
-              <Switch checked={checked} onChange={handleCheckedChange} />
-            }
-            label="Zoom In"
-          />
+          <GroupZoomFunction checked={checked} onChange={handleCheckedChange} />
         </div>
       </Draggable>
     </>
