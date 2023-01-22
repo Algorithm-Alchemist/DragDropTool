@@ -74,8 +74,6 @@ export default function Whiteboard() {
                                 name={`group ${index + 1}`}
                                 products={groups[index].products}
                                 addProductToGroup={addProductToGroup}
-                                onViewDetails={() => {}}
-                                changeName={() => {}}
                             />
                         );
                     })}

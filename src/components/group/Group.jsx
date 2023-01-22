@@ -13,8 +13,6 @@ export default function Group({
   name,
   products,
   addProductToGroup,
-  changeName,
-  onViewDetails,
 }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "product",
