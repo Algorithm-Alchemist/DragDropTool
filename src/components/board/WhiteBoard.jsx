@@ -13,14 +13,17 @@ export default function Whiteboard() {
   ]);
 
   const [selectedProductIds, setSelectedProductIds] = useState([]);
+  const [removedProductId, setRemovedProductId] = useState(0);
 
   const addProductToGroup = (fromGroupId, productId, groupId) => {
     if (fromGroupId === groupId) return;
 
-    if (groupId === -1)
+    if (groupId === -1) {
       setSelectedProductIds((current) =>
         current.filter((item) => item !== productId)
       );
+      setRemovedProductId(productId);
+    }
 
     let newGroups = groups;
     for (let i = 0; i < newGroups.length; i++) {
@@ -33,10 +36,6 @@ export default function Whiteboard() {
           (product) => product.id !== productId
         );
       }
-    }
-
-    if (groupId === -1) {
-      console.log(groups);
     }
 
     if (fromGroupId === -1) {
@@ -59,6 +58,8 @@ export default function Whiteboard() {
                 id={index + 1}
                 products={groups[index].products}
                 addProductToGroup={addProductToGroup}
+                removedProductId={removedProductId}
+                setRemovedProductId={setRemovedProductId}
               />
             );
           })}
