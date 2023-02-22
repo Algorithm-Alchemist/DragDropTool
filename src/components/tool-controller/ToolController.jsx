@@ -1,86 +1,97 @@
-import React, {useState} from "react";
-import {DndProvider} from "react-dnd";
-import {HTML5Backend} from "react-dnd-html5-backend";
+import React, { useState } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import TabbedDisplay from "../tabbed-display/TabbedDisplay";
 import TabPanel from "../tabbed-display/tabPanel";
 import Whiteboard from "../board/WhiteBoard";
 import ProductSlider from "../slider/ProductSlider";
-import {productList} from "../../helpers/productList";
+import { productList } from "../../helpers/productList";
 
 function ToolController() {
-    const [groups, setGroups] = useState([{id: 1, products: [], name: ""}]);
-    const [selectedProductIds, setSelectedProductIds] = useState([]);
-    const [tabNumbers, setTabNumbers] = useState([1, 2]);
+  const [groups, setGroups] = useState([{ id: 1, products: [], name: "" }]);
+  const [selectedProductIds, setSelectedProductIds] = useState([]);
+  const [tabNumbers, setTabNumbers] = useState([1, 2]);
 
-    const addProductToGroup = (fromGroupId, productId, groupId) => {
-        console.log(fromGroupId, productId, groupId);
+  const addProductToGroup = (fromGroupId, productId, groupId) => {
+    console.log(fromGroupId, productId, groupId);
 
-        if (fromGroupId === groupId) return;
+    if (fromGroupId === groupId) return;
 
-        if (groupId === -1) setSelectedProductIds(current => current.filter(item => item !== productId));
+    if (groupId === -1)
+      setSelectedProductIds((current) =>
+        current.filter((item) => item !== productId)
+      );
 
-        let newGroups = groups;
-        for (let i = 0; i < newGroups.length; i++) {
-            let group = newGroups[i];
-            if (group.id === groupId) {
-                const product = productList.find(product => product.id === productId);
+    let newGroups = groups;
+    for (let i = 0; i < newGroups.length; i++) {
+      let group = newGroups[i];
+      if (group.id === groupId) {
+        const product = productList.find((product) => product.id === productId);
 
-                group.products = [...group.products, product];
-            } else if (group.id === fromGroupId) {
-                group.products = group.products.filter(product => product.id !== productId);
-            }
-        }
-
-        if (groupId === -1) {
-            // console.log(newGroups);
-            console.log(groups);
-        }
-
-        if (fromGroupId === -1) {
-            setSelectedProductIds(current => [...current, productId]);
-        }
-
-        setGroups([...newGroups]);
-    };
-
-    const tabPanelSx = {fontFamily: "sans-serif", padding: "16px"};
-
-    const tabLabels = () => {
-        return tabNumbers.map((val, index) => {
-            return `page${val}`;
-        });
-    };
-
-    const handleAddNewPage = () => {
-        if (tabNumbers.length > 0) setTabNumbers([...tabNumbers, tabNumbers[tabNumbers.length - 1] + 1]);
-        else setTabNumbers([1]);
-    };
-
-    const handleClosePage = (event, tabToDelete) => {
-        event.stopPropagation();
-        setTabNumbers(
-            tabNumbers.filter((val, index) => {
-                return index !== tabToDelete;
-            })
+        group.products = [...group.products, product];
+      } else if (group.id === fromGroupId) {
+        group.products = group.products.filter(
+          (product) => product.id !== productId
         );
-    };
+      }
+    }
 
-    return (
-        <DndProvider backend={HTML5Backend}>
-            <TabbedDisplay
-                tabLabels={tabLabels()}
-                handleAddNewPage={handleAddNewPage}
-                handleClosePage={handleClosePage}
-            >
-                <TabPanel index={0}>
-                    <Whiteboard></Whiteboard>
-                </TabPanel>
-                <TabPanel index={1}>
-                    <Whiteboard></Whiteboard>
-                </TabPanel>
-            </TabbedDisplay>
-        </DndProvider>
+    if (groupId === -1) {
+      // console.log(newGroups);
+      console.log(groups);
+    }
+
+    if (fromGroupId === -1) {
+      setSelectedProductIds((current) => [...current, productId]);
+    }
+
+    setGroups([...newGroups]);
+  };
+
+  const tabPanelSx = { fontFamily: "sans-serif", padding: "16px" };
+
+  const tabLabels = () => {
+    return tabNumbers.map((val, index) => {
+      return `page${val}`;
+    });
+  };
+
+  const handleAddNewPage = () => {
+    if (tabNumbers.length > 0)
+      setTabNumbers([...tabNumbers, tabNumbers[tabNumbers.length - 1] + 1]);
+    else setTabNumbers([1]);
+  };
+
+  const handleClosePage = (event, tabToDelete) => {
+    event.stopPropagation();
+    setTabNumbers(
+      tabNumbers.filter((val, index) => {
+        return index !== tabToDelete;
+      })
     );
+  };
+
+  const tabPanels = () => {
+    return tabNumbers.map((val, index) => {
+      return (
+        <TabPanel index={index}>
+          <Whiteboard></Whiteboard>
+        </TabPanel>
+      );
+    });
+  };
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <TabbedDisplay
+        tabLabels={tabLabels()}
+        handleAddNewPage={handleAddNewPage}
+        handleClosePage={handleClosePage}
+      >
+        {tabPanels()}
+      </TabbedDisplay>
+    </DndProvider>
+  );
 }
 
 export default ToolController;
