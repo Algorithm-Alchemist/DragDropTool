@@ -1,12 +1,15 @@
+import { Badge } from "@mui/material";
 import React from "react";
 import { useDrag } from "react-dnd";
+import ProductsModal from "src/components/Modal/ProductsModal";
 
 export default function GroupProduct({
   productInfo,
   currentGroupId,
-  onViewDetails,
   index,
   isZoomedIn,
+  productQuantities,
+  handleQuantityChange,
 }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "product",
@@ -26,6 +29,23 @@ export default function GroupProduct({
     }
   };
 
+  const modalInfo = (e) => {
+    setOpen(true);
+    setImage(e.target.getAttribute("src"));
+    setProdName(productInfo.name);
+    setProdPrice(productInfo.price);
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const [zoomBadge, setZoomBadge] = React.useState(true);
+
+  const [image, setImage] = React.useState("");
+
+  const [prodName, setProdName] = React.useState("");
+
+  const [prodPrice, setProdPrice] = React.useState("");
+
   const _style = isZoomedIn
     ? {
         transform: "scale(0.9)",
@@ -38,19 +58,62 @@ export default function GroupProduct({
         height: `${height}px`,
         width: "auto",
         border: isDragging ? "10 px solid blue" : "0px solid black",
-        marginLeft: marginLeft(),
         zIndex: index + 1,
-        marginTop: `${marginArr[index % 4] * 50 - 25}px`,
+        position: "relative",
       };
+
+  const spanStyle = {
+    position: "relative",
+    marginTop: `${marginArr[index % 4] * 50 - 25}px`,
+    marginLeft: marginLeft(),
+    pointerEvents: "none",
+  };
+
+  const badgeStyle = {
+    position: "absolute",
+    right: "25%",
+    top: "22%",
+    pointerEvents: "auto",
+    zIndex: index + 1,
+    cursor: "default",
+  };
+
   return (
-    <img
-      className={`group-product ${isZoomedIn? "": "group-product-hover"}`}
-      alt="draggable pic"
-      ref={drag}
-      key={productInfo.id}
-      src={"/product-images/" + productInfo.image_name}
-      style={_style}
-      onClick={() => onViewDetails(productInfo.id)}
-    />
+    <>
+      {open && (
+        <ProductsModal
+          open={open}
+          setOpen={setOpen}
+          image={image}
+          prodName={prodName}
+          prodPrice={prodPrice}
+          onQuantityChange={handleQuantityChange}
+          productId={productInfo.id}
+          badgeContent={productQuantities[productInfo.id]}
+        ></ProductsModal>
+      )}
+
+      <span style={spanStyle}>
+        <img
+          className={`group-product ${isZoomedIn ? "" : "group-product-hover"}`}
+          alt="draggable pic"
+          ref={drag}
+          key={productInfo.id}
+          src={"/product-images/" + productInfo.image_name}
+          style={{ ..._style, pointerEvents: "auto" }}
+          onClick={(e) => modalInfo(e)}
+          onMouseEnter={() => setZoomBadge(false)}
+          onMouseLeave={() => setZoomBadge(true)}
+        />
+        <Badge
+          badgeContent={productQuantities[productInfo.id]}
+          onClick={() => setOpen(true)}
+          color="primary"
+          overlap="circular"
+          className={`group-badge ${zoomBadge ? "" : "group-badge-hover"}`}
+          sx={badgeStyle}
+        ></Badge>
+      </span>
+    </>
   );
 }
