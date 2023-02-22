@@ -31,7 +31,7 @@ export const TabPanel: React.FC<TabPanelProps> = (props: TabPanelProps) => {
       sx={props.sx}
       {...other}
     >
-      {selected === index && children}
+      {children}
     </Box>
   );
 };
