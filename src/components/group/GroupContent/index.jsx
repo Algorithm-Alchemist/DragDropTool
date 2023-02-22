@@ -7,6 +7,8 @@ export default function GroupContent({
   isZoomedIn,
   productQuantities,
   setProductQuantity,
+  groupName,
+  setGroupName,
 }) {
   const _style = isZoomedIn
     ? {
@@ -40,6 +42,8 @@ export default function GroupContent({
               isZoomedIn={isZoomedIn}
               productQuantities={productQuantities}
               handleQuantityChange={handleQuantityChange}
+              groupName={groupName}
+              setGroupName={setGroupName}
             />
           );
         })}

@@ -10,6 +10,8 @@ export default function GroupProduct({
   isZoomedIn,
   productQuantities,
   handleQuantityChange,
+  groupName,
+  setGroupName,
 }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "product",
@@ -90,6 +92,8 @@ export default function GroupProduct({
           onQuantityChange={handleQuantityChange}
           productId={productInfo.id}
           badgeContent={productQuantities[productInfo.id]}
+          groupName={groupName}
+          setGroupName={setGroupName}
         ></ProductsModal>
       )}
 

@@ -94,9 +94,11 @@ export default function Group({
               isZoomedIn={false}
               setProductQuantity={setProductQuantities}
               productQuantities={productQuantities}
+              groupName={groupName}
+              setGroupName={setGroupName}
             />
           </div>
-          <GroupZoomFunction checked={checked} onChange={handleCheckedChange} />
+          {/* <GroupZoomFunction checked={checked} onChange={handleCheckedChange} /> */}
         </div>
       </Draggable>
     </>
