@@ -1,6 +1,13 @@
 import GroupProduct from "../GroupProduct";
+import * as React from "react";
 
-export default function GroupContent({ products, id, isZoomedIn }) {
+export default function GroupContent({
+  products,
+  id,
+  isZoomedIn,
+  productQuantities,
+  setProductQuantity,
+}) {
   const _style = isZoomedIn
     ? {
         marginTop: "20px",
@@ -11,20 +18,31 @@ export default function GroupContent({ products, id, isZoomedIn }) {
         overflowY: "scroll",
       }
     : {};
+
+  const handleQuantityChange = (productId, quantity) => {
+    setProductQuantity((prevState) => ({
+      ...prevState,
+      [productId]: quantity,
+    }));
+  };
+
   return (
     <div className="group-content" style={_style}>
       {" "}
       {products &&
-        products.map((product, _index) => (
-          <GroupProduct
-            key={product.id}
-            currentGroupId={id}
-            productInfo={product}
-            // onViewDetails={() => onViewDetails(product.id)}
-            index={_index}
-            isZoomedIn={isZoomedIn}
-          />
-        ))}
+        products.map((product, _index) => {
+          return (
+            <GroupProduct
+              key={product.id}
+              currentGroupId={id}
+              productInfo={product}
+              index={_index}
+              isZoomedIn={isZoomedIn}
+              productQuantities={productQuantities}
+              handleQuantityChange={handleQuantityChange}
+            />
+          );
+        })}
     </div>
   );
 }
