@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Typography } from "@mui/material";
+import GroupName from "../group/GroupName";
 
 export default function ProductsModal(props) {
   const handleClose = () => {
@@ -32,6 +33,11 @@ export default function ProductsModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box className="modal-box" sx={{ bgcolor: "background.paper", p: 4 }}>
+          <GroupName
+            groupName={props.groupName}
+            setGroupName={props.setGroupName}
+            isZoomedIn={true}
+          />
           <img
             className="product-in-modal"
             src={props.image}
