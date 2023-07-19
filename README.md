@@ -1,6 +1,6 @@
 # Getting Started with Drag & Drop Tool
 
-This is a private project to act as a merchandising tool.
+This is act as a merchandising tool.
 This project was bootstrapped with [Create React App].
 
 ## Available Scripts
